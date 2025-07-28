@@ -39,12 +39,10 @@ const Bot = ({ isPopup = false, onClose, web_data }) => {
   }, [web_data]);
 
   //clean bot message
-  const cleanMessage = (text) =>
-    text
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\\n/g, '<br />')
-      .replace(/\*/g, '-')
-      .trim();
+ const cleanMessage = (text) => text
+  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+  .replace(/\\n/g, '<br />')
+  .trim();
 
   //when user enter 0 - goto main menu
   const handleMainMenuClick = () => {
