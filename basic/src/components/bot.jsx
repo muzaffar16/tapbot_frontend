@@ -155,13 +155,14 @@ const Bot = ({ isPopup = false, onClose, web_data }) => {
         </div>
       )}
       <div className="chat-window">
-          {loading ? (
-            <p className="typing-indicator">tapBot is typing…</p>
-          ) : showButtons ? (
-            renderButtons()
-          ) : (
-            renderMessages()
-          )}
+        {showButtons ? (
+          renderButtons()
+        ) : (
+          <>
+            {renderMessages()}
+            {loading && <p className="typing-indicator">tapBot is typing…</p>}
+          </>
+        )}
       </div>
 
       {/* input field */}
