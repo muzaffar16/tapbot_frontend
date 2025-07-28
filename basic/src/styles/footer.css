@@ -1,0 +1,32 @@
+:root {
+  --bot-bg: #37c673;
+  /* green */
+  --bot-body: #0D0D0D;
+  --bot-accent: #1F1F1F;
+}
+
+.display-message{
+    height: 35%;
+    background-color: var(--bot-body);
+    color: white;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    margin-top: 2px;
+    text-align: center;
+}
+.title{
+    color: var(--bot-bg);
+}
+
+.img img{
+  width: 9rem;
+}
+
+
+
+
+
+
+
+

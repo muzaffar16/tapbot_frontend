@@ -1,0 +1,263 @@
+:root {
+  --bot-bg: #37c673;
+  /* green */
+  --bot-body: #0D0D0D;
+  --bot-accent: #1F1F1F;
+}
+
+.msg-window {
+  margin: 3px;
+  height: -webkit-fill-available;
+  border-radius: 0 0 1.2rem 1.2rem;
+  background-color: var(--bot-body);
+  color: var(--bot-accent);
+  display: flex;
+  flex-direction: column;
+
+}
+
+/* Chat messages */
+.chat-window {
+  padding: 0.75rem;
+  border-radius: 0 0 1.6rem 1.6rem;
+  flex: 1;
+  overflow-y: auto;
+  background: var(--bot-body);
+  color: var(--bot-accent);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Scrollbar */
+.chat-window::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-window::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.chat-window::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+/* Chat bubble styles */
+.user-msg,
+.bot-msg {
+  margin-bottom: 12px;
+}
+
+
+
+/* Input area */
+
+
+.user-input {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  border-radius: 8px;
+  background-color: var(--bot-accent);
+  border: 2px solid #666;
+  color: var(--bot-accent);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4);
+  width: 15.5rem;
+}
+
+.user-input input {
+  background-color: var(--bot-accent);
+  color: var(--bot-bg)
+}
+
+.input-border {
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bot-body);
+  border-top: 2px solid var(--bot-accent);
+  position: relative;
+  /* bottom: 10px; */
+  border-radius: 0 0 1.6rem 1.6rem;
+}
+
+
+.message-text {
+  white-space: pre-line;
+}
+
+
+
+
+.input-box {
+  width: 80%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  padding: 6px 8px;
+  color: var(--bot-accent);
+}
+
+.send-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--bot-bg);
+  margin-left: 10px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.send-btn:hover {
+  transform: scale(1.1);
+  color: var(--bot-bg);
+}
+
+
+
+
+/* Header styles */
+.header {
+  width: 100%;
+  /* position: fixed; */
+  background-color: var(--bot-body);
+  color: #666;
+  padding: 10px 0 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.header-title {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.header-time {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+
+/* Chat bubble styles */
+.bot-msg {
+  display: flex;
+  gap: 9px;
+  align-self: flex-start;
+  max-width: 100%;
+  margin-bottom: 12px;
+}
+
+.bot-msg .message-text {
+  background-color: var(--bot-accent);
+  color: var(--bot-bg);
+  border: 2px solid var(--bot-bg);
+  padding: 7px 5px;
+  border-radius: 18px;
+  border-top-left-radius: 4px;
+  font-size: small;
+  line-height: 1.4;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+
+.user-msg {
+  text-align: right;
+  align-self: flex-end;
+  margin-bottom: 12px;
+}
+
+.user-msg .message-text {
+  background-color: var(--bot-body);
+  color: #666;
+  border: 2px solid #666;
+  padding: 10px 14px;
+  border-radius: 18px;
+  border-bottom-right-radius: 4px;
+  font-size: small;
+  line-height: 1.4;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+
+
+
+/* Typing indicator */
+.typing-indicator {
+  font-size: 13px;
+  color: #666;
+  margin-top: 6px;
+  font-style: italic;
+  align-self: flex-start;
+}
+
+
+.category-buttons {
+  /* margin-top: 3rem; */
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.category-buttons button {
+  position: relative;
+  overflow: hidden;
+  width: 40%;
+  height: 2rem;
+  margin: 5px;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 2px solid var(--bot-bg);
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+.category-buttons button:last-child:nth-child(odd) {
+  flex-basis: 100%;
+  max-width: calc(20rem + 10px);
+  /* width of two buttons + margin */
+}
+
+
+.category-buttons button span {
+  position: relative;
+  z-index: 1;
+  /* keep text above ::before */
+  color: var(--bot-bg);
+  transition: color 0.3s ease;
+}
+
+
+.msg span {
+  /* width: 100%; */
+  color: white;
+  font-weight: 400;
+  font-size: large;
+}
+
+.msg {
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.botIcon {
+  align-items: center;
+  border-radius: 50%;
+}
+
+.botIcon img {
+      width: 20px;
+    height: 20px;
+    padding: 5px;
+  border-radius: 50%;
+  background-color: var(--bot-bg);
+  color: var(--bot-bg);
+}

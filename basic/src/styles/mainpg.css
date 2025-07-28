@@ -1,0 +1,75 @@
+:root {
+  --bot-bg: #37c673;
+  /* green */
+  --bot-body: #0D0D0D;
+  --bot-accent: #1F1F1F;
+}
+
+
+.widget {
+    margin: 3px;
+    border-radius: 0 0 1.2rem 1.2rem;
+    background-color: var(--bot-body);
+}
+
+.chat-body {
+background: var(--bot-body);
+    top: 2rem;
+    padding: 1.5rem;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.chat-body .btn {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.chat-body button {
+    position: relative;
+    overflow: hidden;
+    width: 12rem;
+    height: 2.5rem;
+    margin: 7px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.chat-body .complain-btn button{
+  background-color: var(--bot-bg);
+  border: none;
+}
+
+.chat-body .question-btn button{
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.noInternet{
+   height: 10%;
+    background-color: var(--bot-body);
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    margin-top: 2px;
+    text-align: center;
+}
+
+
+
+
+/* @media (min-width: 400px) and (max-width: 767px) {
+  .widget{
+    width: 97%;
+  }
+} */

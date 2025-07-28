@@ -1,0 +1,230 @@
+:root {
+  --bot-bg: #37c673;
+  /* green */
+  --bot-body: #0D0D0D;
+  --bot-accent: #1F1F1F;
+}
+
+.complain {
+   margin: 3px;
+  height: -webkit-fill-available;
+  border-radius:0 0 1.2rem 1.2rem;
+  background-color: var(--bot-body);
+  color: var(--bot-accent);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+
+.ComplainBody {
+  margin-top: 0.5rem;
+  padding: 1rem;
+ border: none;
+  flex: 1;
+  overflow-y:hidden;
+  background: var(--bot-body);
+  color: var(--bot-accent);
+  /* box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4); */
+   font-family: 'Segoe UI', sans-serif;
+}
+
+.complain-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 100%;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+/* Scrollbar */
+.complain-form {
+  overflow-y: auto; /* Enable scrolling */
+  scrollbar-width: none; /* For Firefox */
+}
+
+.complain-form::-webkit-scrollbar {
+  width: 0;  /* Hide scrollbar for Chrome/Safari/Edge */
+  height: 0;
+  background: transparent; /* Optional */
+}
+
+/* Optional: Show very subtle scrollbar on hover */
+.complain-form:hover::-webkit-scrollbar {
+  width: 6px;
+}
+
+.complain-form:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.input-group p {
+  margin: 0;
+  /* font-weight: 500; */
+  font-size: 12px;
+  color: white;
+}
+
+.input-group input,
+.input-group textarea {
+  padding: 0.6rem;
+  border-radius: 0.4rem;
+  border: 1px solid #333;
+  background-color: #222;
+  color: white;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 10px;
+  transition: border-color 0.2s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color:var(--bot-bg);
+  outline: none;
+}
+
+.addImg {
+  margin: 1rem 0;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.addImg p {
+  margin: 0;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.file-input-container {
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+  border: 1px solid #333;
+  background-color: #222;
+  color: var(--bot-accent);
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+.file-input-container:focus {
+  border-color:var(--bot-bg);
+  outline: none;
+}
+
+.file-input-label {
+    display: inline-block;
+    padding: 6px 6px;
+    background-color: white;
+    color: var(--bot-accent);
+    border: 1px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 9px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.file-input-label:hover {
+  border: 2px solid var(--bot-bg);
+}
+
+.file-name {
+  color: #6c757d;
+  font-size: 12px;
+  white-space: nowrap;
+  padding-left: 0.3rem;
+}
+
+.error-msg {
+  display: block;
+  color: #dc3545;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+/* Submit button */
+.submit-btn {
+  padding: 10px;
+  background-color: var(--bot-bg);
+  color: var(--bot-accent);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 15px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: var(--bot-bg);
+  transform: translateY(-2px);
+}
+
+/* Error text */
+.error-msg {
+  color: #ff6b6b;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+.complainHeader{
+  color: var(--bot-bg);
+  padding-left: 1rem;
+  height: 2rem;
+}
+
+
+.submit {
+    border-radius: 8px;
+    /* width: 100%; */
+    margin: 16px 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.submit-bot-icon {
+  width: 100%;
+  height: 40%;
+  flex-shrink: 0;
+  font-size: 2px;
+      /* padding-top: 2rem; */
+}
+
+.submit-bot-icon img {
+  width: 100%;
+  height: 5rem;
+  object-fit: contain;
+}
+
+.submit-msg {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    gap: 18px;
+    color: white;
+    font-size: 14px;
+}
+
+.submit-msg span{
+  /* width: 67%; */
+  padding: 0 16% 0 16%;
+
+}
+
+
+
+

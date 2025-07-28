@@ -1,0 +1,39 @@
+:root {
+  --bot-bg: #37c673;
+  /* green */
+  --bot-body: #0D0D0D;
+  --bot-accent: #1F1F1F;
+}
+.chat-header{
+    background-color: var(--bot-accent);
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    padding: 14px;
+    height: 1rem;
+}
+
+.logo img{
+  width: 32px;
+}
+
+.TapShop-logo img{
+    width: 5rem;
+    height: auto;
+}
+
+.closeBtn button{
+   color: white;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+}
+.closeBtn{
+    position: absolute;
+    left: 0px;
+}
+
+
