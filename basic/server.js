@@ -13,7 +13,7 @@ dotenv.config()
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const isProd = process.env.NODE_ENV === 'production'
-const port = process.env.PORT || 5174
+const port = process.env.PORT || 8080
 const api = process.env.VITE_API_URL
 async function createServer() {
   const app = express()
