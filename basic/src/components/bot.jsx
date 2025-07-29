@@ -24,7 +24,7 @@ const Bot = ({ isPopup = false, onClose, web_data }) => {
   const [query, setQuery] = useState('');
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [sessionId] = useState(() => Date.now().toString());
+  const [sessionId,setSessionId] = useState(() => Date.now().toString());
   const [allowInput, setAllowInput] = useState(false);
   const [showButtons, setShowButtons] = useState(true);
   // const [showCat, setShowCat] = useState(true);
@@ -39,10 +39,10 @@ const Bot = ({ isPopup = false, onClose, web_data }) => {
   }, [web_data]);
 
   //clean bot message
- const cleanMessage = (text) => text
-  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-  .replace(/\\n/g, '<br />')
-  .trim();
+  const cleanMessage = (text) => text
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\\n/g, '<br />')
+    .trim();
 
   //when user enter 0 - goto main menu
   const handleMainMenuClick = () => {
@@ -52,12 +52,14 @@ const Bot = ({ isPopup = false, onClose, web_data }) => {
       setQuery('');
       setAllowInput(false);
       setShowButtons(true);
+      setSessionId(() => Date.now().toString())
     }, 1500);
   };
 
   //user click send button send msg to bot
   const handleSend = async (text = query, showUserMsg = true) => {
     const trimmed = text.trim();
+    // console.log('session id: ',sessionId);
     if (!trimmed) return;
     //if msg ==0 goto main pg
     if (trimmed === '0') return handleMainMenuClick();
@@ -72,6 +74,7 @@ const Bot = ({ isPopup = false, onClose, web_data }) => {
     setShowButtons(false);
 
     //send msg to gemeini 
+
     try {
       const res = await fetch(`/chat-relay?websiteName=${web_data.websiteName}`, {
         method: 'POST',
@@ -82,6 +85,7 @@ const Bot = ({ isPopup = false, onClose, web_data }) => {
       //get gemini responce and display to screen
       const data = await res.json();
       const botMessage = `${data.reply}<br /><br /><em>Enter <strong>0</strong> for 🔁 Go to Main Menu</em>`;
+      // console.log('reply: ',data.reply);
       setMessages((prev) => [...prev, { sender: 'bot', text: botMessage }]);
     } catch {
       setMessages((prev) => [...prev, { sender: 'bot', text: '⚠️ Error talking to server.' }]);
@@ -96,23 +100,27 @@ const Bot = ({ isPopup = false, onClose, web_data }) => {
     setAllowInput(true);
     setShowButtons(false);
   };
-  const renderMessages = () =>
-    messages.map((m, i) => (
 
-      <div key={i} className={m.sender === 'user' ? 'user-msg' : 'bot-msg'}>
-        {m.sender === 'bot' && (
-          <div className="botIcon">
-            <img src={boticon} alt="Bot" />
-          </div>
-        )}
-        <div
-          className="message-text"
-          dangerouslySetInnerHTML={{
-            __html: m.sender === 'user' ? m.text : cleanMessage(m.text),
-          }}
-        />
-      </div>
-    ));
+  const renderMessages = () =>
+    messages.map((m, i) => {
+      return (
+        <div key={i} className={m.sender === 'user' ? 'user-msg' : 'bot-msg'}>
+          {m.sender === 'bot' && (
+            <div className="botIcon">
+              <img src={boticon} alt="Bot" />
+            </div>
+          )}
+          <div
+            className="message-text"
+            dangerouslySetInnerHTML={{
+              __html: m.sender === 'user' ? m.text : cleanMessage(m.text),
+            }}
+          />
+        </div>
+      );
+    });
+
+
 
   //render category buttons eg. pricing etc
   const renderButtons = () =>
@@ -133,8 +141,10 @@ const Bot = ({ isPopup = false, onClose, web_data }) => {
     );
 
   const goBackToCategories = () => {
+     setSessionId(() => Date.now().toString())
     setMessages([]);         // Clear messages
     setQuery('');
+    setLoading(false);
     setAllowInput(false);    // Disable input box
     setShowButtons(true);    // Show category buttons again
   };
@@ -153,7 +163,13 @@ const Bot = ({ isPopup = false, onClose, web_data }) => {
         <div className="header">
           <div className="header-time">{new Date().toLocaleString('en-US', { weekday: 'long', hour: '2-digit', minute: '2-digit' })}</div>
         </div>
+
       )}
+      {/* <div className="msg">
+      {renderMessages()}
+      {loading && <p className="typing-indicator">tapBot is typing…</p>}
+      </div> */}
+
       <div className="chat-window">
         {showButtons ? (
           renderButtons()
@@ -164,6 +180,7 @@ const Bot = ({ isPopup = false, onClose, web_data }) => {
           </>
         )}
       </div>
+
 
       {/* input field */}
       {allowInput && (
